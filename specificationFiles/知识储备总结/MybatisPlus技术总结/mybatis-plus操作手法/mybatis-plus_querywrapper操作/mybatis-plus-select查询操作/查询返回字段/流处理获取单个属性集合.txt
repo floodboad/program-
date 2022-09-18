@@ -1,0 +1,16 @@
+List<DefApplication> list = list(Wraps.<DefApplication>lbQ().orderByAsc(DefApplication::getSortValue));
+        List<Long> applicationIdList = list.stream().map(DefApplication::getId).collect(Collectors.toList());
+
+
+if (!list.isEmpty()) {
+            List<Long> idList = list.stream().mapToLong(Msg::getId).boxed().collect(Collectors.toList());
+            return msgReceiveManager.update(Wraps.<MsgReceive>lbU()
+                    .eq(MsgReceive::getUserId, employeeId)
+                    .in(MsgReceive::getMsgId, idList)
+                    .set(MsgReceive::getIsRead, true)
+                    .set(MsgReceive::getUpdatedTime, LocalDateTime.now())
+                    .set(MsgReceive::getUpdatedBy, employeeId)
+            );
+        }
+获取List<String> name：
+new QueryWrapper<对象>().eq("**","**")).stream().map(对象::对象属性).collect(Collectors.toList())

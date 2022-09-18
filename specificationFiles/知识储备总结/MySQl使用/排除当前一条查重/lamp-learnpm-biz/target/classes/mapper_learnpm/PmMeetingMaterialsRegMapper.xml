@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.PmMeetingMaterialsRegMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.PmMeetingMaterialsReg">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_MEETING_APPLY_ID" property="pmProjectMeetingApplyId" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_ID" property="pmProjectId" jdbcType="BIGINT" />
+		  <result column="PM_COMPLIANCE_MATERIALS_ID" property="pmComplianceMaterialsId" jdbcType="BIGINT" />
+		  <result column="MATERIAL_TYPE_NAME" property="materialTypeName" jdbcType="VARCHAR" />
+		  <result column="ILLUSTRATE" property="illustrate" jdbcType="VARCHAR" />
+		  <result column="ATTACHMENT" property="attachment" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      PM_PROJECT_MEETING_APPLY_ID,
+      PM_PROJECT_ID,
+      PM_COMPLIANCE_MATERIALS_ID,
+      MATERIAL_TYPE_NAME,
+      ILLUSTRATE,
+      ATTACHMENT,
+      ATTRIBUTE1,
+      ATTRIBUTE2,
+      ATTRIBUTE3,
+      ATTRIBUTE4,
+      ATTRIBUTE5,
+      ATTRIBUTE6,
+      ATTRIBUTE7,
+      ATTRIBUTE8,
+      ATTRIBUTE9,
+      ATTRIBUTE10,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+</mapper>

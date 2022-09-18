@@ -1,0 +1,2 @@
+1.PmProjectMeetingApply entity = BeanPlusUtil.toBean(saveVO, PmProjectMeetingApply.class);
+superManager.save(entity);

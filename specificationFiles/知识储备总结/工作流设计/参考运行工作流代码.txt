@@ -1,0 +1,64 @@
+/**
+ * 审批接口
+ *
+ * @param auditVO
+ * @throws Exception
+ */
+@Override
+@Transactional(rollbackFor = Exception.class)
+public void audit(AuditVO auditVO) throws Exception {
+    //查询流程实例是否结束
+    String status = DSConstant.DICTIONARY_MEETING_PLANNING_STATUS_04;
+    if (!auditVO.getAgreest().equals(DSConstant.DICTIONARY_RM_YES_NOT_1)) {
+        status = DSConstant.DICTIONARY_MEETING_PLANNING_STATUS_03;
+    }
+    PmApprovalProcessInstance pmProcessPhaseInstance = workFlowService.auditPass(auditVO);
+    //如果流程实例结束，修改业务表状态
+    if (pmProcessPhaseInstance.getIsEnd().equals(DSConstant.DICTIONARY_RM_YES_NOT_1)) {
+        PmProject pmProject = projectService.getById(auditVO.getBusinessId());
+        if (pmProject == null) {
+            throw new Exception("项目信息有误，刷新后重新提交！");
+        }
+        //判断工作流是否通过
+        PmProjectUpdateVO updateVO = new PmProjectUpdateVO();
+        updateVO.setId(auditVO.getBusinessId());
+        updateVO.setMeetingPlanningStatus(status);
+        projectService.updateById(updateVO);
+    }
+
+
+}
+
+/**
+ * 发起工作流
+ * @param projectId
+ * @throws Exception
+ */
+@Override
+public void commitPlanAdjustAudit(Long projectId) throws Exception {
+    //根据项目id查询调整记录信息
+    QueryWrapper<PmProjectPlanAdjustRecord> queryWrapper = new QueryWrapper();
+    queryWrapper.eq("PM_PROJECT_ID", projectId).eq("STATUS", DSConstant.DICTIONARY_ADJUST_STATUS_01);
+    List<PmProjectPlanAdjustRecord> pmProjectPlanAdjustRecords = pmProjectPlanAdjustRecordMapper.selectList(queryWrapper);
+    if (pmProjectPlanAdjustRecords.size() < 1) {
+        throw new Exception("调整信息有误！");
+    }
+    PmProjectPlanAdjustRecord pmProjectPlanAdjustRecord = pmProjectPlanAdjustRecords.get(0);
+    //发起工作流
+    SearchToDoVO searchToDoVO = new SearchToDoVO();
+    searchToDoVO.setBusinessId(pmProjectPlanAdjustRecord.getId());
+    searchToDoVO.setBusinessType(DSConstant.DICTIONARY_BUSINESS_TYPE_07);
+    searchToDoVO.setProcessName(DSConstant.DICTIONARY_PROCESS_NAME_PROJECT_ADJUST);
+    searchToDoVO.setProcessInstanceId(0);
+    StartVO startVO = StartVO.builder().businessType(DSConstant.DICTIONARY_BUSINESS_TYPE_07)
+            .businessId(pmProjectPlanAdjustRecords.get(0).getId())
+            .toDoId(workFlowService.getToDoList(searchToDoVO))
+            .processName(DSConstant.DICTIONARY_PROCESS_NAME_PROJECT_ADJUST)
+            .businessInfo(JSONObject.toJSONString(pmProjectPlanAdjustRecord))
+            .applicantId(ContextUtil.getApplicationId())
+            .applicantName(ContextUtil.getUserName())
+            .build();
+    workFlowService.startFlow(startVO);
+    pmProjectPlanAdjustRecord.setStatus(DSConstant.DICTIONARY_ADJUST_STATUS_02);
+    pmProjectPlanAdjustRecordMapper.updateAllById(pmProjectPlanAdjustRecord);
+}

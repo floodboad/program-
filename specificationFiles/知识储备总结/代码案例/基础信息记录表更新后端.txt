@@ -1,0 +1,88 @@
+（一）MsExpertInfoServiceImpl中：
+  @Override
+    @Transactional(rollbackFor = Exception.class)
+    public MsExpertInfo save(MsExpertInfoSaveVO saveVO) {
+        MsExpertInfo entity = BeanPlusUtil.toBean(saveVO,  MsExpertInfo.class);
+        superManager.save(entity);
+        //添加记录
+        msUpdateOperationRecordService.saveRecord(saveVO);    这是新增加的内容
+
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public MsExpertInfo updateById(MsExpertInfoUpdateVO updateVO) {
+        MsExpertInfo old = getById(updateVO.getId());
+
+        MsExpertInfo entity = BeanPlusUtil.toBean(updateVO, MsExpertInfo.class);
+        superManager.updateById(entity);
+        //添加记录
+        msUpdateOperationRecordService.saveRecord(updateVO);    这是新增加的内容
+
+（二）MsUpdateOperationRecordService中：
+    MsUpdateOperationRecord saveRecord(MsExpertInfoUpdateVO u);
+    MsUpdateOperationRecord saveRecord(MsExpertInfoSaveVO u);
+
+    MsUpdateOperationRecord save(MsUpdateOperationRecordSaveVO recordSaveVO);
+
+（三）MsUpdateOperationRecordServiceImpl中：
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public MsUpdateOperationRecord saveRecord(MsExpertInfoUpdateVO u) {
+        Date date = new Date();
+        MsUpdateOperationRecord record = MsUpdateOperationRecord.builder().operatorId(ContextUtil.getUserId())
+                .operatorName(ContextUtil.getUserName())
+                .operatorTime(date)
+                .updateTableId(u.getId())
+                .updateTableName("MsExpertInfo")
+                .operatorType("更新")
+                .operatorDesc("更新相关信息")
+                .unit(u.getWorkingHospital()+u.getDepartment())
+                .ip("127.0.0.1")
+                .build();
+        superManager.save(record);
+        return record;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public MsUpdateOperationRecord saveRecord(MsExpertInfoSaveVO s) {
+        Long id = new Random().nextLong();
+        Date date = new Date();
+        MsUpdateOperationRecord record = MsUpdateOperationRecord.builder().operatorId(ContextUtil.getUserId())
+                .operatorName(ContextUtil.getUserName())
+                .operatorTime(date)
+                .updateTableId(id)
+                .updateTableName("MsExpertInfo")
+                .operatorType("新增")
+                .operatorDesc("新增相关信息")
+                .unit(s.getWorkingHospital()+s.getDepartment())
+                .ip("127.0.0.1")
+                .build();
+        superManager.save(record);
+        return record;
+
+    }
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public MsUpdateOperationRecord save(MsUpdateOperationRecordSaveVO recordSaveVO){
+
+        Long OperatorId = ContextUtil.getUserId();
+        recordSaveVO.setOperatorId(OperatorId);
+        Long id = new Random().nextLong();
+        /**
+         while(flag){
+            boolean flag = true;
+            if (id 不存在于数据库){
+              插入数据库
+              flag = false;
+            }else{
+             id = new Random().nextLong();
+            }
+         }
+        **/
+        MsUpdateOperationRecord entity = saveBefore(recordSaveVO);
+        this.getSuperManager().save(entity);
+        saveAfter(recordSaveVO, entity);
+        return entity;
+    }

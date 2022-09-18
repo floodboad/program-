@@ -1,0 +1,21 @@
+
+1.相关介绍：split(你需要分割字符串的，分割的总个数) 该方法使用正则表达式的底层完成对字符串的分割。
+
+2.实例：
+  2.1.简单情况
+      String s = "women,sksk,k,k,k,k,,,,,,3";
+      for (String s1 : s.split(",")) {
+            System.out.println(s1);
+      }
+
+  2.2.注意事项1：此处的时候可能在遍历大量数据或者是有并发情况的时候会有丢失空格的可能，结尾空字符串将被丢弃。并且在遍历集合或者是数组的时候判断非空或者是非NULL的时候会产生空指针异常、数组下标越界异常。
+     String s = "women,sksk,k,k,k,k,,,,,,3";
+     for (String s1 : s.split(",",-1)) {
+          System.out.println(s1);
+     }
+
+  2.3.注意事项2：、 | 和 *等转义字符，必须得加\。
+       String hh = "192.168.50.21";
+       for (String s1 : hh.split(".")) {
+               System.out.println(s1);
+          }

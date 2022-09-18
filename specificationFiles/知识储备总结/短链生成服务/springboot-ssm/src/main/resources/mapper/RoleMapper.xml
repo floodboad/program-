@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xcl.xx.ssmdemo.dao.mysql.RoleMapper">
+
+    <!-- 获取直播信息-->
+    <select id="selectAll"  resultType="com.xcl.xx.ssmdemo.dao.pojo.Role">
+
+      select * from tb_role
+
+    </select>
+
+    <insert id="saveSingleRole" parameterType="com.xcl.xx.ssmdemo.dao.pojo.Role">
+        insert into tb_role(ID,NAME,TEL,WORK)
+        values (#{id},#{name},#{tel},#{work})
+    </insert>
+
+    <!--#{id},'石桐赫','121324','护士'-->
+</mapper>

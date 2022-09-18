@@ -1,0 +1,11 @@
+一、问题：
+​ IO操作中，我常常因为懒惰，想写相对路径，如File file = new File("/config.properties");，
+ 但是我却找不到一个项目的根目录到底在哪，记录下我这次的寻找根目录的方法
+
+解决方法：
+传入根目录./到File类中
+
+通过输出File的方法**getAbsoluteFile()**找到根目录
+
+File file = new File("./");
+System.out.println(file.getAbsoluteFile());

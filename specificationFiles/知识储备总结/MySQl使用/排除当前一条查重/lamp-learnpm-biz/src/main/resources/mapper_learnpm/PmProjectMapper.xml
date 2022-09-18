@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.PmProjectMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.PmProject">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="PROJECT_NAME" property="projectName" jdbcType="VARCHAR" />
+		  <result column="PROJECT_CODE" property="projectCode" jdbcType="VARCHAR" />
+		  <result column="PROJECT_INITIATION_UNIT_ID" property="projectInitiationUnitId" jdbcType="BIGINT" />
+		  <result column="PROJECT_INITIATION_UNIT_NAME" property="projectInitiationUnitName" jdbcType="VARCHAR" />
+		  <result column="PROJECT_RECOMMENDER_ID" property="projectRecommenderId" jdbcType="BIGINT" />
+		  <result column="PROJECT_RECOMMENDER_NAME" property="projectRecommenderName" jdbcType="VARCHAR" />
+		  <result column="INITIATOR_ID" property="initiatorId" jdbcType="BIGINT" />
+		  <result column="INITIATOR_NAME" property="initiatorName" jdbcType="VARCHAR" />
+		  <result column="PROJECT_APPROVAL_DEPARTMENT_ID" property="projectApprovalDepartmentId" jdbcType="BIGINT" />
+		  <result column="PROJECT_APPROVAL_DEPARTMENT_NAME" property="projectApprovalDepartmentName" jdbcType="VARCHAR" />
+		  <result column="ACADEMIC_GUIDANCE" property="academicGuidance" jdbcType="VARCHAR" />
+		  <result column="PROJECT_CATEGORY_ID" property="projectCategoryId" jdbcType="BIGINT" />
+		  <result column="PROJECT_CATEGORY_NAME" property="projectCategoryName" jdbcType="VARCHAR" />
+		  <result column="PROJECT_SUMMARY" property="projectSummary" jdbcType="VARCHAR" />
+		  <result column="PROJECT_INITIATION_CUSTOMER_UNIT_ID" property="projectInitiationCustomerUnitId" jdbcType="BIGINT" />
+		  <result column="PROJECT_INITIATION_CUSTOMER_UNIT_NAME" property="projectInitiationCustomerUnitName" jdbcType="VARCHAR" />
+		  <result column="PROJECT_INITIATION_YEAR" property="projectInitiationYear" jdbcType="VARCHAR" />
+		  <result column="CUSTOMER_CONTACT" property="customerContact" jdbcType="VARCHAR" />
+		  <result column="CUSTOMER_CONTACT_INFO" property="customerContactInfo" jdbcType="VARCHAR" />
+		  <result column="POST" property="post" jdbcType="VARCHAR" />
+		  <result column="THIRD_PARTY_NAME" property="thirdPartyName" jdbcType="VARCHAR" />
+		  <result column="FOURTH_PARTY_NAME" property="fourthPartyName" jdbcType="VARCHAR" />
+		  <result column="TOTAL_PROJECT_AMOUNT" property="totalProjectAmount" jdbcType="DECIMAL" />
+		  <result column="TOTAL_BUDGET_AMOUNT" property="totalBudgetAmount" jdbcType="DECIMAL" />
+		  <result column="ESTIMATED_MEETING_TOTAL_NUM" property="estimatedMeetingTotalNum" jdbcType="VARCHAR" />
+		  <result column="INVESTMENT_INVITATION_LETTER" property="investmentInvitationLetter" jdbcType="VARCHAR" />
+		  <result column="OTHER" property="other" jdbcType="VARCHAR" />
+		  <result column="POSTSCRIPT" property="postscript" jdbcType="VARCHAR" />
+		  <result column="MEETING_BUDGET_OCCUPIED" property="meetingBudgetOccupied" jdbcType="DECIMAL" />
+		  <result column="MEETING_SCHEDULE" property="meetingSchedule" jdbcType="VARCHAR" />
+		  <result column="COMPLETED_SESSIONS" property="completedSessions" jdbcType="VARCHAR" />
+		  <result column="ACTUAL_BUDGET_SPENT" property="actualBudgetSpent" jdbcType="DECIMAL" />
+		  <result column="REMAINING_BUDGET_AMOUNT" property="remainingBudgetAmount" jdbcType="DECIMAL" />
+		  <result column="PROJECT_STAUTS" property="projectStauts" jdbcType="CHAR" />
+		  <result column="MEETING_PLANNING_STATUS" property="meetingPlanningStatus" jdbcType="CHAR" />
+		  <result column="PROJECT_SOURCE" property="projectSource" jdbcType="CHAR" />
+		  <result column="CONSOLIDATED_TAX_AMOUNT" property="consolidatedTaxAmount" jdbcType="DECIMAL" />
+		  <result column="BUDGET_OCCUPATION_RETURN_AMOUNT" property="budgetOccupationReturnAmount" jdbcType="DECIMAL" />
+		  <result column="ADJUST_STATUS" property="adjustStatus" jdbcType="CHAR" />
+		  <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      PROJECT_NAME,
+      PROJECT_CODE,
+      PROJECT_INITIATION_UNIT_ID,
+      PROJECT_INITIATION_UNIT_NAME,
+      PROJECT_RECOMMENDER_ID,
+      PROJECT_RECOMMENDER_NAME,
+      INITIATOR_ID,
+      INITIATOR_NAME,
+      PROJECT_APPROVAL_DEPARTMENT_ID,
+      PROJECT_APPROVAL_DEPARTMENT_NAME,
+      ACADEMIC_GUIDANCE,
+      PROJECT_CATEGORY_ID,
+      PROJECT_CATEGORY_NAME,
+      PROJECT_SUMMARY,
+      PROJECT_INITIATION_CUSTOMER_UNIT_ID,
+      PROJECT_INITIATION_CUSTOMER_UNIT_NAME,
+      PROJECT_INITIATION_YEAR,
+      CUSTOMER_CONTACT,
+      CUSTOMER_CONTACT_INFO,
+      POST,
+      THIRD_PARTY_NAME,
+      FOURTH_PARTY_NAME,
+      TOTAL_PROJECT_AMOUNT,
+      TOTAL_BUDGET_AMOUNT,
+      ESTIMATED_MEETING_TOTAL_NUM,
+      INVESTMENT_INVITATION_LETTER,
+      OTHER,
+      POSTSCRIPT,
+      MEETING_BUDGET_OCCUPIED,
+      MEETING_SCHEDULE,
+      COMPLETED_SESSIONS,
+      ACTUAL_BUDGET_SPENT,
+      REMAINING_BUDGET_AMOUNT,
+      PROJECT_STAUTS,
+      MEETING_PLANNING_STATUS,
+      PROJECT_SOURCE,
+      CONSOLIDATED_TAX_AMOUNT,
+      BUDGET_OCCUPATION_RETURN_AMOUNT,
+      ADJUST_STATUS,
+      ATTRIBUTE1,
+      ATTRIBUTE2,
+      ATTRIBUTE3,
+      ATTRIBUTE4,
+      ATTRIBUTE5,
+      ATTRIBUTE6,
+      ATTRIBUTE7,
+      ATTRIBUTE8,
+      ATTRIBUTE9,
+      ATTRIBUTE10,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+
+<select id="getByPhone" resultMap="BaseResultMap" >
+
+    select * from pm_project where initiator_id=#{initiatorId}
+
+</select>
+</mapper>

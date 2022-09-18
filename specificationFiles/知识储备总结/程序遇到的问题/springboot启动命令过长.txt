@@ -1,0 +1,13 @@
+http://jz-fw.com/qamain/view/4048202109120000012.action
+
+idea 2020 运行问题： Command line is too long.Shorten command line ..
+
+问题扫述：
+项目在idea 2018运行得好好的，用上了idea 2020 后遇如如下问题
+Command line is too long.Shorten command line … 命令太长
+解决方法：
+
+修改项目下 .idea\workspace.xml，找到标签 <component name="PropertiesComponent"> ， 在标签里加一行
+<property name="dynamic.classpath" value="true" />
+项目跑起来了。
+

@@ -1,0 +1,2 @@
+1、本机访问：http://localhost:8083/swagger-ui.html   利用swagger来使用api接口测试
+2、如果要读取config.xml文件，该文件在fourinone-zju\src\com\zju\fourinone目录下，需要” .\\src\\com\\zju\\fourinone\\config.xml”这样子读取，其中\\是转义字符。

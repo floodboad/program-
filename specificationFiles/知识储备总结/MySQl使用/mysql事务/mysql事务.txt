@@ -1,0 +1,2 @@
+分部式事务：biz：采用globaltrsaction事务，多数据源调用，   和service的类一样，加serveice注解
+                   service：采用trsaction事务，readonly，单数据源，如果说是想要改不是只读，不要改为false，而是要在某个方法上，加上抛出异常，@Transactional(rollbackFor = Exception.class)，然后不会报错，只读异常。

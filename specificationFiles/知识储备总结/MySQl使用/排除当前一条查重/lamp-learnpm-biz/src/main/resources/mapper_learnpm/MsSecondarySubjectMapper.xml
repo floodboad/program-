@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.MsSecondarySubjectMapper">
+<!--
+    代码生成器 by 2022-06-17 11:55:05
+    自定义sql建议在base文件夹同级新建ext文件夹，并新建同名且同namespace的xml进行编写。方便修改字段时，重新生成此文件。
+-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.MsSecondarySubject">
+        <id column="ID" property="id" />
+        <result column="PARENT_ID" property="parentId" />
+        <result column="FIRST_SUBJECT_NAME" property="firstSubjectName" />
+        <result column="SECONDARY_SUBJECT_NAME" property="secondarySubjectName" />
+        <result column="SECONDARY_SUBJECT_CODE" property="secondarySubjectCode" />
+        <result column="OA_REFERENCE_CODE" property="oaReferenceCode" />
+        <result column="NAME" property="name" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        `ID`, `PARENT_ID`, `FIRST_SUBJECT_NAME`, `SECONDARY_SUBJECT_NAME`, `SECONDARY_SUBJECT_CODE`, `OA_REFERENCE_CODE`, 
+        `NAME`
+    </sql>
+
+</mapper>

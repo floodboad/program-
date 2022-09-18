@@ -1,0 +1,43 @@
+一、公共类
+@RequiredArgsConstructor
+@Data
+@ToString(callSuper = true)
+public class WO extends DefUser implements Serializable {
+
+    /**
+     * 验证码
+     */
+    private String verificationCode;
+
+    /**
+     * 一次只能传入一条，各种Id，用于查询单体详情 例: projectId = XXX;
+     */
+    private Long dataId;
+
+    /**
+     * 同一种的ID列表 例如：projectIdList = { 111, 222, 333 }    这个地方很令人疑惑
+     */
+    private List<Long> dataIdList;
+
+    /**
+     * 各种不同的id，例如{ user_id: 1, projectId: xxx }
+     */
+    private Map<String,List<Long>> dataIdMap;
+}
+
+二、传入对象
+   {
+      "id":"1"
+     }
+
+响应：
+{
+  "code": 0,
+  "data": 2,
+  "msg": "ok",
+  "path": null,
+  "extra": null,
+  "timestamp": "1656487768571",
+  "errorMsg": "",
+  "isSuccess": true
+}

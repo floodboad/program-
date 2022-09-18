@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.PmExpertReplaceRecordMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.PmExpertReplaceRecord">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_MEETING_APPLY_ID" property="pmProjectMeetingApplyId" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_ID" property="pmProjectId" jdbcType="BIGINT" />
+		  <result column="MEETING_SUPPORT_PROJECT_NAME" property="meetingSupportProjectName" jdbcType="VARCHAR" />
+		  <result column="MEETING_NO_NAME" property="meetingNoName" jdbcType="VARCHAR" />
+		  <result column="PM_CONFERENCE_EXPERT_SERVICES_ID" property="pmConferenceExpertServicesId" jdbcType="BIGINT" />
+		  <result column="OLD_MS_EXPERT_INFO_ID" property="oldMsExpertInfoId" jdbcType="BIGINT" />
+		  <result column="OLD_EXPERT_INFO_NAME" property="oldExpertInfoName" jdbcType="VARCHAR" />
+		  <result column="NOW_MS_EXPERT_INFO_ID" property="nowMsExpertInfoId" jdbcType="BIGINT" />
+		  <result column="NOW_EXPERT_INFO_NAME" property="nowExpertInfoName" jdbcType="VARCHAR" />
+		  <result column="STATUS" property="status" jdbcType="CHAR" />
+		  <result column="ILLUSTRATE" property="illustrate" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      PM_PROJECT_MEETING_APPLY_ID,
+      PM_PROJECT_ID,
+      MEETING_SUPPORT_PROJECT_NAME,
+      MEETING_NO_NAME,
+      PM_CONFERENCE_EXPERT_SERVICES_ID,
+      OLD_MS_EXPERT_INFO_ID,
+      OLD_EXPERT_INFO_NAME,
+      NOW_MS_EXPERT_INFO_ID,
+      NOW_EXPERT_INFO_NAME,
+      STATUS,
+      ILLUSTRATE,
+      ATTRIBUTE1,
+      ATTRIBUTE2,
+      ATTRIBUTE3,
+      ATTRIBUTE4,
+      ATTRIBUTE5,
+      ATTRIBUTE6,
+      ATTRIBUTE7,
+      ATTRIBUTE8,
+      ATTRIBUTE9,
+      ATTRIBUTE10,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+</mapper>

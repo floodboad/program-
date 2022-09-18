@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>top.tangyh.lamp</groupId>
+        <artifactId>lamp-learnpm</artifactId>
+      <version>4.6.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>lamp-learnpm-entity</artifactId>
+    <name>${project.artifactId}</name>
+    <description>学会项目管理-实体模块</description>
+    <dependencies>
+       <dependency>
+            <groupId>top.tangyh.lamp</groupId>
+            <artifactId>lamp-common</artifactId>
+            <version>${lamp-project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>top.tangyh.lamp</groupId>
+            <artifactId>lamp-system-entity</artifactId>
+            <version>${lamp-project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>top.tangyh.basic</groupId>
+            <artifactId>lamp-mvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>top.tangyh.lamp</groupId>
+            <artifactId>lamp-base-entity</artifactId>
+            <version>4.6.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--腾讯会议 -->
+        <dependency>
+            <groupId>com.tencentcloudapi.wemeet</groupId>
+            <artifactId>wemeet-restapi-sdk-java</artifactId>
+            <!-- go to https://search.maven.org/search?q=wemeet-restapi-sdk-java and get the latest version. -->
+            <!-- 请到https://search.maven.org/search?q=wemeet-restapi-sdk-java查询所有版本，最新版本如下 -->
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tencentcloudapi.wemeet</groupId>
+            <artifactId>wemeet-restapi-sdk-java</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>

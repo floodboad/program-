@@ -1,0 +1,15 @@
+一、Java long 转成 String
+第一种：
+String s = String.valueOf(long)
+第二种：
+String s = Long.toString(long)
+
+二、Java String 转成 long
+   1.java中如何将string 转化成long
+      long l = Long.parseLong([String]);
+      或 
+      long l = Long.parseLong([String],[int radix]); 
+      long l = Long.valueOf("123").longValue();
+   2.Long.ValueOf("String")与Long.parseLong("String")的区别
+      Long.ValueOf("String")返回Long包装类型
+      Long.parseLong("String")返回long基本数据类型

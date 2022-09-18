@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.MsPjComplianceFileDefMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.MsPjComplianceFileDef">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="COMPLIANCE_FILE_NAME" property="complianceFileName" jdbcType="VARCHAR" />
+		  <result column="ILLUSTRATE" property="illustrate" jdbcType="VARCHAR" />
+		  <result column="IS_VALID" property="isValid" jdbcType="CHAR" />
+		  <result column="MEETING_EXECUTION_LINK" property="meetingExecutionLink" jdbcType="CHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      COMPLIANCE_FILE_NAME,
+      ILLUSTRATE,
+      IS_VALID,
+      MEETING_EXECUTION_LINK,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+</mapper>

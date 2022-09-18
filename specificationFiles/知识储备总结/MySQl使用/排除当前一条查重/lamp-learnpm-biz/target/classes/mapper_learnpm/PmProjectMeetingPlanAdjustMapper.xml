@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.PmProjectMeetingPlanAdjustMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.PmProjectMeetingPlanAdjust">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_PLAN_ADJUST_RECORD_ID" property="pmProjectPlanAdjustRecordId" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_ID" property="pmProjectId" jdbcType="BIGINT" />
+		  <result column="PROJECT_NAME" property="projectName" jdbcType="VARCHAR" />
+		  <result column="PM_PROJECT_MEETING_PLANNING_ID" property="pmProjectMeetingPlanningId" jdbcType="BIGINT" />
+		  <result column="PROJECT_MEETING_PLANNING_NAME" property="projectMeetingPlanningName" jdbcType="VARCHAR" />
+		  <result column="MEETING_MODE" property="meetingMode" jdbcType="VARCHAR" />
+		  <result column="MS_LONGZHU_MEETING_TYPE_ID" property="msLongzhuMeetingTypeId" jdbcType="BIGINT" />
+		  <result column="MEETING_TYPE" property="meetingType" jdbcType="VARCHAR" />
+		  <result column="OLD_EXECUTION_SESSIONS_NUMBER" property="oldExecutionSessionsNumber" jdbcType="INTEGER" />
+		  <result column="ADJUST_EXECUTION_SESSIONS_NUMBER" property="adjustExecutionSessionsNumber" jdbcType="INTEGER" />
+		  <result column="NOW_EXECUTION_SESSIONS_NUMBER" property="nowExecutionSessionsNumber" jdbcType="INTEGER" />
+		  <result column="MEETING_FEE_STANDARD" property="meetingFeeStandard" jdbcType="DECIMAL" />
+		  <result column="PROVINCE_CODE" property="provinceCode" jdbcType="INTEGER" />
+		  <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+		  <result column="CITY_CODE" property="cityCode" jdbcType="INTEGER" />
+		  <result column="MEETING_CITY" property="meetingCity" jdbcType="VARCHAR" />
+		  <result column="MEETING_DISTRICT_COUNTY_CODE" property="meetingDistrictCountyCode" jdbcType="INTEGER" />
+		  <result column="MEETING_DISTRICT_COUNTY_NAME" property="meetingDistrictCountyName" jdbcType="VARCHAR" />
+		  <result column="TOTAL_BUDGET_AMOUNT" property="totalBudgetAmount" jdbcType="DECIMAL" />
+		  <result column="OLD_TOTAL_BUDGET_AMOUNT" property="oldTotalBudgetAmount" jdbcType="DECIMAL" />
+		  <result column="ADJUST_TOTAL_BUDGET_AMOUNT" property="adjustTotalBudgetAmount" jdbcType="DECIMAL" />
+		  <result column="CHARGE_PERSON_ID" property="chargePersonId" jdbcType="BIGINT" />
+		  <result column="CHARGE_PERSON_NAME" property="chargePersonName" jdbcType="VARCHAR" />
+		  <result column="PHONE" property="phone" jdbcType="CHAR" />
+		  <result column="MINIMUM_PARTICIPANTS_NUMBER" property="minimumParticipantsNumber" jdbcType="INTEGER" />
+		  <result column="MAXIMUM_PARTICIPANTS_NUMBER" property="maximumParticipantsNumber" jdbcType="INTEGER" />
+		  <result column="ILLUSTRATE" property="illustrate" jdbcType="VARCHAR" />
+		  <result column="ATTACHMENT" property="attachment" jdbcType="VARCHAR" />
+		  <result column="MEETING_FEE_STANDARD2" property="meetingFeeStandard2" jdbcType="DECIMAL" />
+		  <result column="OPENED_TIMES" property="openedTimes" jdbcType="INTEGER" />
+		  <result column="IN_LABOR_COST_OF_EACH_EXPERT" property="inLaborCostOfEachExpert" jdbcType="DECIMAL" />
+		  <result column="IN_CURRENT_EXPERT_SERVICE_FEE" property="inCurrentExpertServiceFee" jdbcType="DECIMAL" />
+		  <result column="IN_ORIGINAL_MEETING_EXECUTION_COST" property="inOriginalMeetingExecutionCost" jdbcType="DECIMAL" />
+		  <result column="IN_CURRENT_MEETING_EXEC_COST" property="inCurrentMeetingExecCost" jdbcType="DECIMAL" />
+		  <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      PM_PROJECT_PLAN_ADJUST_RECORD_ID,
+      PM_PROJECT_ID,
+      PROJECT_NAME,
+      PM_PROJECT_MEETING_PLANNING_ID,
+      PROJECT_MEETING_PLANNING_NAME,
+      MEETING_MODE,
+      MS_LONGZHU_MEETING_TYPE_ID,
+      MEETING_TYPE,
+      OLD_EXECUTION_SESSIONS_NUMBER,
+      ADJUST_EXECUTION_SESSIONS_NUMBER,
+      NOW_EXECUTION_SESSIONS_NUMBER,
+      MEETING_FEE_STANDARD,
+      PROVINCE_CODE,
+      PROVINCE,
+      CITY_CODE,
+      MEETING_CITY,
+      MEETING_DISTRICT_COUNTY_CODE,
+      MEETING_DISTRICT_COUNTY_NAME,
+      TOTAL_BUDGET_AMOUNT,
+      OLD_TOTAL_BUDGET_AMOUNT,
+      ADJUST_TOTAL_BUDGET_AMOUNT,
+      CHARGE_PERSON_ID,
+      CHARGE_PERSON_NAME,
+      PHONE,
+      MINIMUM_PARTICIPANTS_NUMBER,
+      MAXIMUM_PARTICIPANTS_NUMBER,
+      ILLUSTRATE,
+      ATTACHMENT,
+      MEETING_FEE_STANDARD2,
+      OPENED_TIMES,
+      IN_LABOR_COST_OF_EACH_EXPERT,
+      IN_CURRENT_EXPERT_SERVICE_FEE,
+      IN_ORIGINAL_MEETING_EXECUTION_COST,
+      IN_CURRENT_MEETING_EXEC_COST,
+      ATTRIBUTE1,
+      ATTRIBUTE2,
+      ATTRIBUTE3,
+      ATTRIBUTE4,
+      ATTRIBUTE5,
+      ATTRIBUTE6,
+      ATTRIBUTE7,
+      ATTRIBUTE8,
+      ATTRIBUTE9,
+      ATTRIBUTE10,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+</mapper>

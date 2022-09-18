@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.PmDesignRequirementMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.PmDesignRequirement">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_MEETING_APPLY_ID" property="pmProjectMeetingApplyId" jdbcType="BIGINT" />
+		  <result column="MEETING_NAME" property="meetingName" jdbcType="VARCHAR" />
+		  <result column="PM_PROJECT_ID" property="pmProjectId" jdbcType="BIGINT" />
+		  <result column="PROJECT_NAME" property="projectName" jdbcType="VARCHAR" />
+		  <result column="DESIGN_REQ_DESCRIPTION" property="designReqDescription" jdbcType="VARCHAR" />
+		  <result column="DESIGN_DATA_ATTACHMENT" property="designDataAttachment" jdbcType="VARCHAR" />
+		  <result column="DESIGN_RESULT_ATTACHMENT" property="designResultAttachment" jdbcType="VARCHAR" />
+		  <result column="APPLICANT_ID" property="applicantId" jdbcType="BIGINT" />
+		  <result column="APPLICANT" property="applicant" jdbcType="VARCHAR" />
+		  <result column="APPLICANT_PHONE" property="applicantPhone" jdbcType="CHAR" />
+		  <result column="ACTUAL_DESIGN_COST" property="actualDesignCost" jdbcType="DECIMAL" />
+		  <result column="DESIGN_COST_BALANCE" property="designCostBalance" jdbcType="DECIMAL" />
+		  <result column="BEFORE_EXE_BUDGET_AMOUNT" property="beforeExeBudgetAmount" jdbcType="DECIMAL" />
+		  <result column="BUDGET_AMOUNT" property="budgetAmount" jdbcType="DECIMAL" />
+		  <result column="STATUS" property="status" jdbcType="CHAR" />
+		  <result column="APPLICATION_AMOUNT" property="applicationAmount" jdbcType="DECIMAL" />
+		  <result column="APPROVER_ID" property="approverId" jdbcType="BIGINT" />
+		  <result column="APPROVER" property="approver" jdbcType="VARCHAR" />
+		  <result column="APPROVER_PHONE" property="approverPhone" jdbcType="CHAR" />
+		  <result column="PRODUCER_ID" property="producerId" jdbcType="BIGINT" />
+		  <result column="PRODUCER_PHONE" property="producerPhone" jdbcType="CHAR" />
+		  <result column="PRODUCER" property="producer" jdbcType="VARCHAR" />
+		  <result column="APPLICATION_TIME" property="applicationTime" jdbcType="TIMESTAMP" />
+		  <result column="AUDIT_TIME" property="auditTime" jdbcType="TIMESTAMP" />
+		  <result column="PRODUCER_TIME" property="producerTime" jdbcType="TIMESTAMP" />
+		  <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      PM_PROJECT_MEETING_APPLY_ID,
+      MEETING_NAME,
+      PM_PROJECT_ID,
+      PROJECT_NAME,
+      DESIGN_REQ_DESCRIPTION,
+      DESIGN_DATA_ATTACHMENT,
+      DESIGN_RESULT_ATTACHMENT,
+      APPLICANT_ID,
+      APPLICANT,
+      APPLICANT_PHONE,
+      ACTUAL_DESIGN_COST,
+      DESIGN_COST_BALANCE,
+      BEFORE_EXE_BUDGET_AMOUNT,
+      BUDGET_AMOUNT,
+      STATUS,
+      APPLICATION_AMOUNT,
+      APPROVER_ID,
+      APPROVER,
+      APPROVER_PHONE,
+      PRODUCER_ID,
+      PRODUCER_PHONE,
+      PRODUCER,
+      APPLICATION_TIME,
+      AUDIT_TIME,
+      PRODUCER_TIME,
+      ATTRIBUTE1,
+      ATTRIBUTE2,
+      ATTRIBUTE3,
+      ATTRIBUTE4,
+      ATTRIBUTE5,
+      ATTRIBUTE6,
+      ATTRIBUTE7,
+      ATTRIBUTE8,
+      ATTRIBUTE9,
+      ATTRIBUTE10,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+</mapper>

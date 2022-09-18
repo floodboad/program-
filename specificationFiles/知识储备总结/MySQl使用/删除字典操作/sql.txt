@@ -1,0 +1,2 @@
+select * from def_dict where key_ = 'LEARNPM_NODE_TYPE_CODE';
+select * from def_dict where parent_id = (select id from def_dict where key_ = 'LEARNPM_NODE_TYPE_CODE');

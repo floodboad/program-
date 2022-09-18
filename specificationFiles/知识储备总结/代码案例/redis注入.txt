@@ -1,0 +1,6 @@
+@Resource(name="redisTemplate")
+RedisTemplate<String, Object> redisTemplate;
+
+String userName = (String) redisTemplate.opsForValue().get(ADConstant.REDIS_USER_NAME_TOKEN+vehicleDetail.getUserId());
+
+redisTemplate.opsForValue().set(ADConstant.REDIS_USER_NAME_TOKEN+resultVO.getId(),resultVO.getUsername());

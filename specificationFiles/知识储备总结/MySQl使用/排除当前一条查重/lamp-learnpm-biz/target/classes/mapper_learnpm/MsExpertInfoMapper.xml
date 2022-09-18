@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.MsExpertInfoMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.MsExpertInfo">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="NAME" property="name" jdbcType="VARCHAR" />
+		  <result column="SEX" property="sex" jdbcType="CHAR" />
+		  <result column="TEL" property="tel" jdbcType="VARCHAR" />
+		  <result column="CERTIFICATE_TYPE" property="certificateType" jdbcType="CHAR" />
+		  <result column="CERTIFICATE_CODE" property="certificateCode" jdbcType="VARCHAR" />
+		  <result column="BIRTHDAY" property="birthday" jdbcType="TIMESTAMP" />
+		  <result column="POSTAL_ADDRESS" property="postalAddress" jdbcType="VARCHAR" />
+		  <result column="WORKING_HOSPITAL" property="workingHospital" jdbcType="VARCHAR" />
+		  <result column="DEPARTMENT" property="department" jdbcType="VARCHAR" />
+		  <result column="POST" property="post" jdbcType="VARCHAR" />
+		  <result column="BANK_BRANCH_NAME" property="bankBranchName" jdbcType="VARCHAR" />
+		  <result column="ACCOUNT" property="account" jdbcType="VARCHAR" />
+		  <result column="HEAD_PORTRAIT" property="headPortrait" jdbcType="VARCHAR" />
+		  <result column="EXPERT_PROFILE" property="expertProfile" jdbcType="VARCHAR" />
+		  <result column="HIGHEST_EDUCATION" property="highestEducation" jdbcType="VARCHAR" />
+		  <result column="ACADEMIC_DEGREE" property="academicDegree" jdbcType="VARCHAR" />
+		  <result column="WORK_DATE" property="workDate" jdbcType="TIMESTAMP" />
+		  <result column="GRADUATE_SCHOOL" property="graduateSchool" jdbcType="VARCHAR" />
+		  <result column="MAJOR" property="major" jdbcType="VARCHAR" />
+		  <result column="SPECIALTY" property="specialty" jdbcType="VARCHAR" />
+		  <result column="TECHNICAL_TITLE" property="technicalTitle" jdbcType="VARCHAR" />
+		  <result column="OPENID" property="openid" jdbcType="VARCHAR" />
+		  <result column="UNICODE" property="unicode" jdbcType="VARCHAR" />
+		  <result column="STATUS" property="status" jdbcType="CHAR" />
+		  <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      NAME,
+      SEX,
+      TEL,
+      CERTIFICATE_TYPE,
+      CERTIFICATE_CODE,
+      BIRTHDAY,
+      POSTAL_ADDRESS,
+      WORKING_HOSPITAL,
+      DEPARTMENT,
+      POST,
+      BANK_BRANCH_NAME,
+      ACCOUNT,
+      HEAD_PORTRAIT,
+      EXPERT_PROFILE,
+      HIGHEST_EDUCATION,
+      ACADEMIC_DEGREE,
+      WORK_DATE,
+      GRADUATE_SCHOOL,
+      MAJOR,
+      SPECIALTY,
+      TECHNICAL_TITLE,
+      OPENID,
+      UNICODE,
+      STATUS,
+      ATTRIBUTE1,
+      ATTRIBUTE2,
+      ATTRIBUTE3,
+      ATTRIBUTE4,
+      ATTRIBUTE5,
+      ATTRIBUTE6,
+      ATTRIBUTE7,
+      ATTRIBUTE8,
+      ATTRIBUTE9,
+      ATTRIBUTE10,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+</mapper>

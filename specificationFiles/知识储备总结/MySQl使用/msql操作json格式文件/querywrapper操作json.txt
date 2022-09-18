@@ -1,0 +1,1 @@
+wrapper.apply("JSON_CONTAINS(GOODS_ATTR_JSON,JSON_OBJECT('id',{0},'value',{1}))", strs1[i],strs[i]);

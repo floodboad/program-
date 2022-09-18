@@ -1,0 +1,73 @@
+controller：  
+	@Override
+    public R<PmApprovalProcessConfig> save(PmApprovalProcessConfigSaveVO pmApprovalProcessConfigSaveVO){
+        Boolean approvalProcessConfig = ProcessConfigService.processNameRepeatOrNot(pmApprovalProcessConfigSaveVO);
+        if(approvalProcessConfig){
+            return R.fail("改流程名称已经存在！");
+        }
+        return R.success(superService.save(pmApprovalProcessConfigSaveVO));
+    }
+
+    @Override
+    public R<PmApprovalProcessConfig> update(PmApprovalProcessConfigUpdateVO pmApprovalProcessConfigUpdateVO){
+        Boolean approvalProcessConfig = ProcessConfigService.updateProcessNameRepeat(pmApprovalProcessConfigUpdateVO );
+        if(approvalProcessConfig){
+            return R.fail("改流程名称已经存在！");
+        }
+        return R.success(superService.updateById(pmApprovalProcessConfigUpdateVO));
+    }
+	
+service：
+   // 判断流程名称重复; true重复，false不重复.
+    Boolean processNameRepeatOrNot(PmApprovalProcessConfigSaveVO pmApprovalProcessConfigSaveVO);
+
+    Boolean updateProcessNameRepeat(PmApprovalProcessConfigUpdateVO pmApprovalProcessConfigUpdateVO);
+	
+serviceimpl：
+
+ @Override
+    public Boolean processNameRepeatOrNot(PmApprovalProcessConfigSaveVO pmApprovalProcessConfigSaveVO) {
+
+        String processName = pmApprovalProcessConfigSaveVO.getProcessName();
+        ArrayList<String> list = processConfigManager.getAllProcessConfigName();
+        if (list.isEmpty()){
+            return false;
+        }else if (list.contains(processName)){
+            return true;
+        }
+        return false;
+   }
+
+    @Override
+    public Boolean updateProcessNameRepeat(PmApprovalProcessConfigUpdateVO pmApprovalProcessConfigUpdateVO) {
+        String processName = pmApprovalProcessConfigUpdateVO.getProcessName();
+        ArrayList<String> list = processConfigManager.getAllProcessConfigName();
+        if (list.isEmpty()){
+            return false;
+        }else if (list.contains(processName)){
+            return true;
+        }
+        return false;
+    }
+	
+manager：
+  // 获取Mysql库中的所有流程名称
+    ArrayList<String> getAllProcessConfigName();
+	
+managerimpl：
+	
+	 @Autowired
+    private PmApprovalProcessConfigMapper processConfigMapper;
+
+    @Override
+    public ArrayList<String> getAllProcessConfigName() {
+        return processConfigMapper.getAllProcessConfigName();
+    }
+	
+mapper：
+  接口：ArrayList<String> getAllProcessConfigName();
+  xml：
+  <select id="getAllProcessConfigName" resultType="string">
+        SELECT PROCESS_NAME
+        FROM PM_APPROVAL_PROCESS_CONFIG;
+    </select>

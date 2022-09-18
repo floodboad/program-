@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.PmProjectMeetingApplyMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.PmProjectMeetingApply">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="MEETING_ALLOCATION_ID" property="meetingAllocationId" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_MEETING_PLANNING_ID" property="pmProjectMeetingPlanningId" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_ID" property="pmProjectId" jdbcType="BIGINT" />
+		  <result column="MEETING_SUPPORT_PROJECT_NAME" property="meetingSupportProjectName" jdbcType="VARCHAR" />
+		  <result column="MEETING_NO_NAME" property="meetingNoName" jdbcType="VARCHAR" />
+		  <result column="SUPPORT_PROJECT_PLAN_START_TIME" property="supportProjectPlanStartTime" jdbcType="TIMESTAMP" />
+		  <result column="SUPPORT_PROJECT_PLAN_END_TIME" property="supportProjectPlanEndTime" jdbcType="TIMESTAMP" />
+		  <result column="MEETING_MODE" property="meetingMode" jdbcType="VARCHAR" />
+		  <result column="MEETING_TYPE_NAME" property="meetingTypeName" jdbcType="VARCHAR" />
+		  <result column="PROVINCE_CODE" property="provinceCode" jdbcType="INTEGER" />
+		  <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+		  <result column="MEETING_CITY_CODE" property="meetingCityCode" jdbcType="INTEGER" />
+		  <result column="MEETING_CITY_NAME" property="meetingCityName" jdbcType="VARCHAR" />
+		  <result column="MEETING_ADDRESS" property="meetingAddress" jdbcType="VARCHAR" />
+		  <result column="MEETING_DETAIL_ADDRESS" property="meetingDetailAddress" jdbcType="VARCHAR" />
+		  <result column="MEETING_LONGITUDE" property="meetingLongitude" jdbcType="DECIMAL" />
+		  <result column="MEETING_LATITUDE" property="meetingLatitude" jdbcType="DECIMAL" />
+		  <result column="MINIMUM_PARTICIPANTS_NUMBER" property="minimumParticipantsNumber" jdbcType="INTEGER" />
+		  <result column="MAXIMUM_PARTICIPANTS_NUMBER" property="maximumParticipantsNumber" jdbcType="INTEGER" />
+		  <result column="SITE_CONTACT_NAME" property="siteContactName" jdbcType="VARCHAR" />
+		  <result column="SITE_CONTACT_PHONE" property="siteContactPhone" jdbcType="VARCHAR" />
+		  <result column="MEETING_NOTE" property="meetingNote" jdbcType="VARCHAR" />
+		  <result column="TOTAL_MEETING_BUDGET" property="totalMeetingBudget" jdbcType="DECIMAL" />
+		  <result column="MEETING_EXPENSES_AMOUNT" property="meetingExpensesAmount" jdbcType="DECIMAL" />
+		  <result column="BUDGET_REMAINING_AMOUNT" property="budgetRemainingAmount" jdbcType="DECIMAL" />
+		  <result column="MEETING_EXPENSES_AUDIT_AMOUNT" property="meetingExpensesAuditAmount" jdbcType="DECIMAL" />
+		  <result column="BUDGET_EXE_RETURN_AMT" property="budgetExeReturnAmt" jdbcType="DECIMAL" />
+		  <result column="MEETING_STATUS" property="meetingStatus" jdbcType="CHAR" />
+		  <result column="MEETING_FINAL_ACCOUNT_STATUS" property="meetingFinalAccountStatus" jdbcType="CHAR" />
+		  <result column="MEETING_FINAL_ACCOUNT_REMARK" property="meetingFinalAccountRemark" jdbcType="VARCHAR" />
+		  <result column="MEETING_FINAL_ACCOUNT_ATTACHMENT" property="meetingFinalAccountAttachment" jdbcType="VARCHAR" />
+		  <result column="MEETING_OFFLINE_EXPENDITURE" property="meetingOfflineExpenditure" jdbcType="DECIMAL" />
+		  <result column="SHANGQITONG_EXPENDITURE" property="shangqitongExpenditure" jdbcType="DECIMAL" />
+		  <result column="SF_EXPENDITURE" property="sfExpenditure" jdbcType="DECIMAL" />
+		  <result column="PREPAYMENT_EXPENDITURE" property="prepaymentExpenditure" jdbcType="DECIMAL" />
+		  <result column="APPOINTMENTS_NUMBER" property="appointmentsNumber" jdbcType="INTEGER" />
+		  <result column="SHANGQITONG_STATUS" property="shangqitongStatus" jdbcType="CHAR" />
+		  <result column="PUBLISH_STATUS" property="publishStatus" jdbcType="CHAR" />
+		  <result column="CHARGE_PERSON_ID" property="chargePersonId" jdbcType="BIGINT" />
+		  <result column="CHARGE_PERSON_NAME" property="chargePersonName" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      MEETING_ALLOCATION_ID,
+      PM_PROJECT_MEETING_PLANNING_ID,
+      PM_PROJECT_ID,
+      MEETING_SUPPORT_PROJECT_NAME,
+      MEETING_NO_NAME,
+      SUPPORT_PROJECT_PLAN_START_TIME,
+      SUPPORT_PROJECT_PLAN_END_TIME,
+      MEETING_MODE,
+      MEETING_TYPE_NAME,
+      PROVINCE_CODE,
+      PROVINCE,
+      MEETING_CITY_CODE,
+      MEETING_CITY_NAME,
+      MEETING_ADDRESS,
+      MEETING_DETAIL_ADDRESS,
+      MEETING_LONGITUDE,
+      MEETING_LATITUDE,
+      MINIMUM_PARTICIPANTS_NUMBER,
+      MAXIMUM_PARTICIPANTS_NUMBER,
+      SITE_CONTACT_NAME,
+      SITE_CONTACT_PHONE,
+      MEETING_NOTE,
+      TOTAL_MEETING_BUDGET,
+      MEETING_EXPENSES_AMOUNT,
+      BUDGET_REMAINING_AMOUNT,
+      MEETING_EXPENSES_AUDIT_AMOUNT,
+      BUDGET_EXE_RETURN_AMT,
+      MEETING_STATUS,
+      MEETING_FINAL_ACCOUNT_STATUS,
+      MEETING_FINAL_ACCOUNT_REMARK,
+      MEETING_FINAL_ACCOUNT_ATTACHMENT,
+      MEETING_OFFLINE_EXPENDITURE,
+      SHANGQITONG_EXPENDITURE,
+      SF_EXPENDITURE,
+      PREPAYMENT_EXPENDITURE,
+      APPOINTMENTS_NUMBER,
+      SHANGQITONG_STATUS,
+      PUBLISH_STATUS,
+      CHARGE_PERSON_ID,
+      CHARGE_PERSON_NAME,
+      ATTRIBUTE1,
+      ATTRIBUTE2,
+      ATTRIBUTE3,
+      ATTRIBUTE4,
+      ATTRIBUTE5,
+      ATTRIBUTE6,
+      ATTRIBUTE7,
+      ATTRIBUTE8,
+      ATTRIBUTE9,
+      ATTRIBUTE10,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+
+    <select id="getByPmProjectMeetingPlanningid" resultMap="BaseResultMap">
+SELECT   COUNT(*) FROM `pm_project_meeting_apply` WHERE
+
+PM_PROJECT_MEETING_PLANNING_ID=#{id} AND meeting_status='04';
+
+    </select>
+</mapper>

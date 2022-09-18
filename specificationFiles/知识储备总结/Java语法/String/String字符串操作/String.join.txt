@@ -1,0 +1,5 @@
+String[] arr = {“a”,“b”,“c”,“d”};
+
+String result = String.join("-",arr);
+
+输出结果如下：a-b -c-d

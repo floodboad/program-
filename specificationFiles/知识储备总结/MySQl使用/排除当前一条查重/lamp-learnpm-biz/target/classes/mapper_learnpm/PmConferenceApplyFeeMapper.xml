@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.tangyh.lamp.learnpm.mapper.PmConferenceApplyFeeMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.tangyh.lamp.learnpm.entity.PmConferenceApplyFee">
+		  <result column="ID" property="id" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_MEETING_APPLY_ID" property="pmProjectMeetingApplyId" jdbcType="BIGINT" />
+		  <result column="PM_PROJECT_ID" property="pmProjectId" jdbcType="BIGINT" />
+		  <result column="PROJECT_NAME" property="projectName" jdbcType="VARCHAR" />
+		  <result column="PM_PROJECT_MEETING_PLANNING_ID" property="pmProjectMeetingPlanningId" jdbcType="BIGINT" />
+		  <result column="PROJECT_MEETING_PLANNING_NAME" property="projectMeetingPlanningName" jdbcType="VARCHAR" />
+		  <result column="MS_BUDGET_SUBJECT_ID" property="msBudgetSubjectId" jdbcType="BIGINT" />
+		  <result column="FEE_NAME" property="feeName" jdbcType="VARCHAR" />
+		  <result column="CONTROL_STANDARDS" property="controlStandards" jdbcType="VARCHAR" />
+		  <result column="NUM" property="num" jdbcType="INTEGER" />
+		  <result column="AMOUNT_MONEY" property="amountMoney" jdbcType="DECIMAL" />
+		  <result column="ILLUSTRATE" property="illustrate" jdbcType="VARCHAR" />
+		  <result column="FEE_EXECUTED_AMOUNT" property="feeExecutedAmount" jdbcType="DECIMAL" />
+		  <result column="OFFLINE_BUDGET_AMOUNT" property="offlineBudgetAmount" jdbcType="DECIMAL" />
+		  <result column="OTHER_EXECUTION_AMOUNT" property="otherExecutionAmount" jdbcType="DECIMAL" />
+		  <result column="CONSUMED_AMOUNT" property="consumedAmount" jdbcType="DECIMAL" />
+		  <result column="SYSTEM_BUDGET_AMOUNT" property="systemBudgetAmount" jdbcType="DECIMAL" />
+		  <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+		  <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="created_by" jdbcType="BIGINT" property="createdBy"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="updated_by" jdbcType="BIGINT" property="updatedBy"/>
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+      ID,
+      PM_PROJECT_MEETING_APPLY_ID,
+      PM_PROJECT_ID,
+      PROJECT_NAME,
+      PM_PROJECT_MEETING_PLANNING_ID,
+      PROJECT_MEETING_PLANNING_NAME,
+      MS_BUDGET_SUBJECT_ID,
+      FEE_NAME,
+      CONTROL_STANDARDS,
+      NUM,
+      AMOUNT_MONEY,
+      ILLUSTRATE,
+      FEE_EXECUTED_AMOUNT,
+      OFFLINE_BUDGET_AMOUNT,
+      OTHER_EXECUTION_AMOUNT,
+      CONSUMED_AMOUNT,
+      SYSTEM_BUDGET_AMOUNT,
+      ATTRIBUTE1,
+      ATTRIBUTE2,
+      ATTRIBUTE3,
+      ATTRIBUTE4,
+      ATTRIBUTE5,
+      ATTRIBUTE6,
+      ATTRIBUTE7,
+      ATTRIBUTE8,
+      ATTRIBUTE9,
+      ATTRIBUTE10,
+        created_time,created_by,updated_time,updated_by
+    </sql>
+</mapper>

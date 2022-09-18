@@ -1,0 +1,46 @@
+一、预算科目业务接口与七龙珠费用类型设置业务接口实现关联id查询：
+    1.MsBudgetSubjectService：
+        // 获取预算科目和二级科目的id
+        MsBudgetSubject getIds(String subjectName, String SecondarySubjectName);
+    2.MsBudgetSubjectServiceImpl：
+       @Override
+       @Transactional(rollbackFor = Exception.class)
+        public MsBudgetSubject getIds(String subjectName, String SecondarySubjectName){
+             List<MsBudgetSubject> list = superManager.list(Wraps.<MsBudgetSubject>lbQ().eq(MsBudgetSubject::getSubjectName, subjectName)
+                                                           .eq(MsBudgetSubject::getSecondarySubjectName, SecondarySubjectName));
+             if(CollectionUtils.isEmpty(list)){
+                  R.fail("没有找到和"+subjectName+","+SecondarySubjectName+"相关的信息！");
+             }
+             MsBudgetSubject msBudgetSubject = list.get(0);
+             return msBudgetSubject;
+        }
+
+      3.MsLongzhuExpenseTypeService：
+          HashMap<String,Long> getRelationIds(String firstName, String secondName);
+
+      4.MsLongzhuExpenseTypeServiceImpl：
+         1）方法实现名字找到id
+          @Override
+          public HashMap<String,Long> getRelationIds(String subjectName, String SecondarySubjectName) {
+                MsBudgetSubject msBudgetSubject = msBudgetSubjectService.getIds(subjectName, SecondarySubjectName);
+                HashMap<String,Long> map = new HashMap<>();
+                map.put("msBudgetSubjectId",msBudgetSubject.getId());
+                map.put("msSecondarySubjectId",msBudgetSubject.getMsSecondarySubjectId());
+                return map;
+            }
+
+          2)vo中将id插入到save重写方法的方法中           
+         @Override
+         @Transactional(rollbackFor = Exception.class)
+         public MsLongzhuExpenseType save(MsLongzhuExpenseTypeSaveVO saveVO) {
+               MsLongzhuExpenseType entity = BeanPlusUtil.toBean(saveVO,  MsLongzhuExpenseType.class);
+               HashMap<String,Long> mapId = getRelationIds(entity.getSubjectName(),entity.getSecondarySubjectName());
+               entity.setMsBudgetSubjectId(mapId.get("msBudgetSubjectId"));
+               entity.setMsSecondarySubjectId(mapId.get("msSecondarySubjectId"));
+               superManager.save(entity);
+            }
+主子表的id不需要关联，关联表的是需要关联的
+
+
+
+             
