@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery表单</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <style>
+        #form1>input:focus {
+            border: 1px solid #f00;
+            background: #fcc
+        }
+        
+        .focus {
+            border: 1px solid lightblue;
+            background-color: blanchedalmond
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" id="form1">
+        <label for="">用户名</label>
+        <input type="text" name="name">
+        <br>
+        <label for="">密码</label>
+        <input type="password" name="pwd" id="">
+        <input type="button" value="登录">
+    </form>
+    <form action="" id="formGroup">
+        <label for="">用户名</label>
+        <input type="text" name="name">
+        <br>
+        <label for="">密码</label>
+        <input type="password" name="pwd" id="">
+        <input type="button" value="登录">
+    </form>
+</body>
+<script>
+    $(function() {
+        $("#formGroup input").focus(function() {
+            $(this).addClass("focus")
+        }).blur(function() {
+            $(this).removeClass("focus")
+        })
+    })
+</script>
+
+</html>

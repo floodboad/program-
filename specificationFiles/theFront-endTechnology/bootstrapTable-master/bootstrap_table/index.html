@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./js/bootstrapTable/bootstrap-table.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="./js/bootstrapTable/bootstrap-table.min.js"></script>
+    <script src="./js/bootstrapTable/bootstrap-table-zh-CN.js"></script>
+</head>
+<body>
+        <table data-toggle="table" data-url="./data1.json">
+                <thead>
+                    <tr>
+                        <th data-field="user_id">Item ID</th>
+                        <th data-field="realname">Item Name</th>
+                        <th data-field="create_time">Item Price</th>
+                    </tr>
+                </thead>
+            </table>
+</body>
+<script>
+    
+    $('#table').bootstrapTable({
+    
+           
+        });
+
+
+</script>
+</html>

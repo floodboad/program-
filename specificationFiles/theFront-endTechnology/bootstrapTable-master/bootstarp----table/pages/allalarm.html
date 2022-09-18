@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>大屏系统后台任务数据</title>
+
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href="../vendor/font-awesome/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../bootstrap-table/bootstrap-table.min.css">
+
+
+
+    <!---->
+    <!---->
+
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">大屏系统后台任务数据</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 概况</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 报表<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">系统设备</a>
+                                </li>
+                                <li>
+<!--
+                                    <a href="morris.html">Morris.js Charts</a>
+-->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> 表格<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="alluser.html">所有用户</a>
+                                </li>
+                                <li>
+                                    <a href="allequ.html">所有设备</a>
+                                </li>
+                                <li>
+                                    <a href="allnotice.html">报警通知</a>
+                                </li>
+                                <li>
+                                    <a href="allalarm.html">报警设备</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+
+
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">报警设备</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            All Alarm Euqipments
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="toolbar" >
+
+                                <input id="stime"   type="text" style="display: inline-block; position: relative;height:30px;border:1px solid #cfcfcf;border-radius:4px;padding-top:0px"placeholder="&nbsp;&nbsp;&nbsp;起始时间" readonly >
+                                <i id="iconstime" style="position:absolute; left:143px;top:9px;   color: #00A1CB;font-size:20px;display:inline-block" class="fa fa-th fa-fw"></i></input>
+                                --
+                                <input id="etime"    type="text" style="display:inline-block;position: relative;height:30px;border:1px solid #cfcfcf;border-radius:4px;padding-top:0px"placeholder="&nbsp;&nbsp;&nbsp;结束时间" readonly>
+                                <i id="iconetime"    style="position:absolute; left:332px;top:9px;   color: #00A1CB;font-size:20px;display:inline-block" class="fa fa-th fa-fw"></i></input>
+
+
+                                <input id="equname" type="text" style="height:30px;border:1px solid #cfcfcf;border-radius:4px;padding-top:0px" placeholder="&nbsp;&nbsp;&nbsp;请输入设备名称">
+
+                                <div class="btn-group btn-group-sm" >
+                                    <button id="search"   type="button" class="btn btn-default" >搜索</button>
+                                    <button id="refresh"  type="button"  class="btn btn-default">刷新</button>
+
+                           <!--          <div class="btn-group btn-group-sm ">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">导出 <span class="fa fa-caret-down"></span></button>
+                                        <ul class="dropdown-menu" role="menu">
+                                          <li>
+                                              <a    href="#" onclick="txt()">导出为 txt </a>
+                                          </li>
+                                          <li>
+                                              <a href="#" onclick="excel()">导出为 Excel </a>
+                                          </li>
+                                      </ul>
+                                  </div>-->
+
+                            </div>
+
+                        </div>
+
+
+                            <table  id="dataTables-alarms"></table>
+
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+    <script src="../bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+
+    <!---->
+    <script type="text/javascript" src="../export/libs/FileSaver/FileSaver.min.js"></script>
+    <script type="text/javascript" src="../export/libs/js-xlsx/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="../export/libs/jsPDF/jspdf.min.js"></script>
+    <script type="text/javascript" src="../export/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+    <script type="text/javascript" src="../export/libs/html2canvas/html2canvas.min.js"></script>
+
+    <script src="../export/bootstrap-table-export.js"></script>
+    <script src="../export/tableExport.js"></script>
+    <!--time-->
+    <link rel="stylesheet" type="text/css" href="../date/jedate/skin/jedate.css">
+    <script src="../date/jedate/jquery.jedate.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        function initTable() {
+            $('#dataTables-alarms').bootstrapTable('destroy');
+            $('#dataTables-alarms').bootstrapTable({
+                url: '/allAlarmlogs',        //请求后台的URL（*）
+                toolbar: '#toolbar',
+                toolbarAlign:"left",
+                method: 'post',
+                cache:false,
+                showExport:true,            //是否显示导出
+                exportDataType:'all',       //basic', 'all', 'selected'.
+                exportTypes:['txt','excel'],
+                pagination: true,                   //是否显示分页（*）
+                sidePagination: "server",          //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber:1,                       //初始化加载第一页，默认第一页
+                pageSize: 10,                       //每页的记录行数（*）
+                pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                queryParamsType : "limit",
+                queryParams: function queryParams(params) {   //设置查询参数
+                    var param = {
+                        limit:params.limit,
+                        offset:params.offset,
+                        search:$('#equname').val(),
+                        stime:$('#stime').val(),
+                        etime:$('#etime').val()
+                    };
+                    return param;
+                },
+                columns: [{
+                    field: 'equipment_name',
+                    title: '设备名称'
+                }, {
+                    field: 'equipment_mac',
+                    title: 'MAC地址'
+                }, {
+                    field: 'sensor_name',
+                    title: '传感器'
+                }, {
+                    field: 'sensor_data',
+                    title: '数值',
+                    formatter:function(value,row,index){
+                        return row.sensor_data+row.sensor_unit;
+                    }
+
+                }
+                    , {
+                        field: 'alarm_desc',
+                        title: '警报等级'
+                    }
+                    , {
+                        field: 'time',
+                        title: '警报时间',
+                        formatter: function (value) {
+                            var date = new Date(value);
+                            var y = date.getFullYear();
+                            var m = date.getMonth() + 1;
+                            var d = date.getDate();
+                            var h = date.getHours();
+                            var i = date.getMinutes();
+                            var s = date.getSeconds();
+                            return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s);
+                        }
+                    }
+                ]
+            });
+        }
+
+
+
+        function txt() {
+          /*  $('#dataTables-alarms').tableExport(
+            )
+        */
+        }
+
+        function excel() {
+        }
+
+
+        $(function(){
+
+            initTable();
+
+            $('#search').bind("click",initTable)
+            $('#equname').bind('keypress',function(event){
+                if(event.keyCode == 13)
+                {
+                    initTable();
+                }
+            });
+            $('#refresh').bind("click",function(){
+                window.location.reload();
+            })
+
+
+            $("#stime").jeDate({
+                format:"YYYY-MM-DD hh:mm:ss",
+                isTime:true,
+                minDate:"2014-09-19 00:00:00"
+            })
+
+
+            $("#etime").jeDate({
+                format:"YYYY-MM-DD hh:mm:ss",
+                isTime:true,
+                minDate:"2014-09-19 00:00:00"
+            })
+
+            $("#iconstime").bind("click",function () {
+                $.jeDate('#stime',{trigger:false, isTime:true,format:'YYYY-MM-DD hh:mm:ss'})
+            })
+
+            $("#iconetime").bind("click",function () {
+                $.jeDate('#etime',{trigger:false, isTime:true,format:'YYYY-MM-DD hh:mm:ss'})
+            })
+        })
+    </script>
+
+</body>
+
+</html>

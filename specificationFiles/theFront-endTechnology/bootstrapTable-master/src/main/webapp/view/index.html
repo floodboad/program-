@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap-table.min.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+	<div class="container body-content" style="padding-top:20px;">  
+	    <div class="panel panel-default">  
+	        <div class="panel-heading">查询条件</div>  
+	        <div class="panel-body">  
+	            <form class="form-inline">  
+	                <div class="row">  
+	                    <div class="col-sm-4">  
+	                        <label class="control-label">图书名称：</label>  
+	                        <input id="txtTitle" type="text" class="form-control">  
+	                    </div>  
+	                    <div class="col-sm-4">  
+	                        <label class="control-label">图书作者：</label>  
+	                        <input id="txtAuthor" type="text" class="form-control">  
+	                    </div>  
+	                    <div class="col-sm-4">  
+	                        <label class="control-label">出版社：</label>  
+	                        <input id="txtPublish" type="text" class="form-control">  
+	                    </div>  
+	                </div>  
+	  
+	                <div class="row text-right" style="margin-top:20px;">  
+	                    <div class="col-sm-12">  
+	                        <input class="btn btn-primary" type="button" value="查询" onclick="SearchData()">  
+	                        <input class="btn btn-default" type="button" value="批量删除" onclick="BtchDeleteBook()">  
+	                    </div>  
+	                </div>  
+	            </form>  
+	        </div>  
+	    </div>  
+	      
+	    <table id="table"></table>  
+	</div> 
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/js/bootstrap-table.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/js/bootstrap-table-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/js/bootstrap-table-export.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">  
+    $(document).ready(function () {  
+        $('#table').bootstrapTable({  
+            url: '@Url.Action("SearchBookInfo", "Home")',  
+            queryParamsType: '',              //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort  
+            queryParams: queryParams,  
+            method: "post",  
+            pagination: true,  
+            pageNumber: 1,  
+            pageSize: 2,  
+            pageList: [10, 20, 50, 100],  
+            sidePagination: "server",         //分页方式：client客户端分页，server服务端分页（*）  
+            striped: true,                    //是否显示行间隔色  
+            cache: false,  
+            uniqueId: "BookId",               //每一行的唯一标识，一般为主键列  
+            height:300,  
+            paginationPreText: "上一页",  
+            paginationNextText: "下一页",  
+            columns: [  
+                { checkbox: true },  
+                { title: '序号', width: 50, align: "center", formatter: function (value, row, index) { return index + 1; } },  
+                { title: '图书名称', field: 'Title' },  
+                { title: '图书作者', field: 'Author' },  
+                { title: '销售价格', field: 'Price' },  
+                { title: '出版社', field: 'Publish' },  
+                {  
+                    title: '出版时间', field: 'PublishDate', formatter: function (value, row, index) {  
+                        if (value == null)  
+                            return "";  
+                        else {  
+                            var pa = /.*(.∗)/;  
+                            var unixtime = value.match(pa)[1].substring(0, 10);  
+                            return getShortTime(unixtime);  
+                        }  
+                    }  
+                },  
+                {  
+                    title: '操作', field: 'BookId', formatter: function (value, row, index) {  
+                        var html = '<a href="javascript:EditBook('+ value + ')">编辑</a>';  
+                        html += '　<a href="javascript:DeleteBook(' + value + ')">删除</a>';  
+                        return html;  
+                    }  
+                }  
+            ]  
+        });  
+    });  
+  
+    //查询条件  
+    function queryParams(params) {  
+        return {  
+            pageSize: params.pageSize,  
+            pageIndex: params.pageNumber,  
+            Title: $.trim($("#txtTitle").val()),  
+            Author: $.trim($("#txtAuthor").val()),  
+            Publish: $.trim($("#txtPublish").val()),  
+        };  
+    }  
+  
+    //查询事件  
+    function SearchData() {  
+        $('#table').bootstrapTable('refresh', { pageNumber: 1 });  
+    }  
+  
+    //编辑操作  
+    function EditBook(bookId){  
+        alert("编辑操作，图书ID：" + bookId);  
+    }  
+  
+    //删除操作  
+    function DeleteBook(bookId) {  
+        if (confirm("确定删除图书ID：" + bookId + "吗？"))  
+        {  
+            alert("执行删除操作");  
+        }  
+    }  
+  
+    //批量删除  
+    function BtchDeleteBook(){  
+        var opts = $('#table').bootstrapTable('getSelections');  
+        if (opts == "") {  
+            alert("请选择要删除的数据");  
+        }  
+        else {  
+            var idArray = [];  
+            for (var i = 0; i < opts.length; i++) {  
+                idArray.push(opts[i].BookId);  
+            }  
+            if (confirm("确定删除图书ID：" + idArray + "吗？")) {  
+                alert("执行删除操作");  
+            }  
+        }  
+    }  
+  
+    function getTime(/** timestamp=0 **/) {  
+        var ts = arguments[0] || 0;  
+        var t, y, m, d, h, i, s;  
+        t = ts ? new Date(ts * 1000) : new Date();  
+        y = t.getFullYear();  
+        m = t.getMonth() + 1;  
+        d = t.getDate();  
+        h = t.getHours();  
+        i = t.getMinutes();  
+        s = t.getSeconds();  
+        // 可根据需要在这里定义时间格式  
+        return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s);  
+    }  
+  
+    function getShortTime(/** timestamp=0 **/) {  
+        var ts = arguments[0] || 0;  
+        var t, y, m, d, h, i, s;  
+        t = ts ? new Date(ts * 1000) : new Date();  
+        y = t.getFullYear();  
+        m = t.getMonth() + 1;  
+        d = t.getDate();  
+        // 可根据需要在这里定义时间格式  
+        return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d);  
+    }  
+  
+</script>  
+  </body>
+</html>

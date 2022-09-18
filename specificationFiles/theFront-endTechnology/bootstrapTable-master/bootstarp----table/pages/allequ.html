@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>大屏系统后台任务数据</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href="../vendor/font-awesome/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../bootstrap-table/bootstrap-table.min.css">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">大屏系统后台任务数据</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 概况</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 报表<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">系统设备</a>
+                                </li>
+                                <li>
+<!--
+                                    <a href="morris.html">Morris.js Charts</a>
+-->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> 表格<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="alluser.html">所有用户</a>
+                                </li>
+                                <li>
+                                    <a href="allequ.html">所有设备</a>
+                                </li>
+                                <li>
+                                    <a href="allnotice.html">报警通知</a>
+                                </li>
+                                <li>
+                                    <a href="allalarm.html">报警设备</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+
+
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">设备</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            All Euqipments
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div  id="toolbar" class="input-group" style="width: 280px">
+                                <input id="equname" type="text" class="form-control"  style="height:30px" placeholder="请输入设备名称">
+                                <span  id="search"   class="input-group-addon btn btn-primary">搜索</span>
+                                <span  id="refresh"  class="input-group-addon btn btn-primary">刷新</span>
+                            </div>
+                            <table width="100%"  id="dataTables-equs" ></table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+
+    <script src="../bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+
+        <script type="text/javascript">
+
+            function initTable() {
+                $('#dataTables-equs').bootstrapTable('destroy');
+                $('#dataTables-equs').bootstrapTable({
+                    url: '/allEqus',        //请求后台的URL（*）
+                    toolbar: '#toolbar',
+                    /*toolbarAlign:"right",*/
+                    method: 'post',
+                    showExport:false,            //是否显示导出
+                    exportDataType:"all",       //basic', 'all', 'selected'.
+                    pagination: true,                   //是否显示分页（*）
+                    sidePagination: "server",          //分页方式：client客户端分页，server服务端分页（*）
+                    pageNumber:1,                       //初始化加载第一页，默认第一页
+                    pageSize: 10,                       //每页的记录行数（*）
+                    pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                    queryParamsType : "limit",
+                    queryParams: function queryParams(params) {   //设置查询参数
+                        var param = {
+                            limit:params.limit,
+                            offset:params.offset,
+                            search:$('#equname').val()
+                        };
+                        return param;
+                    },
+                    columns: [{
+                        field: 'name',
+                        title: '设备名称'
+                    }, {
+                        field: 'mac',
+                        title: '设备编号'
+                    }, {
+                        field: 'address',
+                        title: '设备地址'
+                    }, {
+                        field: 'longitude',
+                        title: '经度'
+                    }
+                        , {
+                            field: 'latitude',
+                            title: '纬度'
+                        }
+                        ,
+                        {
+                           field: 'statedesc',
+                          title: '状态'
+                       }
+                       , {
+                            field: 'time',
+                            title: '创建日期',
+                            formatter: function (value) {
+                                var date = new Date(value);
+                                var y = date.getFullYear();
+                                var m = date.getMonth() + 1;
+                                var d = date.getDate();
+                                var h = date.getHours();
+                                var i = date.getMinutes();
+                                var s = date.getSeconds();
+                                return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s);
+                            }
+                        }
+                    ]
+                });
+             }
+
+
+
+            $(function(){
+                initTable();
+                $('#search').bind("click",initTable)
+                $('#equname').bind('keypress',function(event){
+                    if(event.keyCode == 13)
+                    {
+                        initTable();
+                    }
+                });
+                $('#refresh').bind("click",function(){
+                    window.location.reload();
+                })
+            })
+
+
+        </script>
+
+
+
+
+</body>
+
+</html>

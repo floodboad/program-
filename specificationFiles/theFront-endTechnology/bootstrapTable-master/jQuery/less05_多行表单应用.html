@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title>jquery表单</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <style>
+        form:first {
+            width: 300px;
+            text-align: center;
+            border: 1px solid lightblue
+        }
+        
+        .msg_caption>span {
+            display: inline-block;
+            height: 20px;
+            background: lightcoral
+        }
+        
+        #comment {
+            height: 200px;
+            background: red
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="msg">
+            <div class="msg_caption">
+                <span class="bigger">放大</span>
+                <span class="smaller">缩小</span>
+            </div>
+            <div>
+                <textarea name="" id="comment" cols="20" rows="8">
+                    定义一个文本区域 (text-area) （一个多行的文本输入区域）。用户可在此文本区域中写文本。在一个文本区中，您可输入无限数量的文本。文本区中的默认字体是等宽字体 (fixed pitch)。
+                </textarea>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <form action="">
+        <div class="msg">
+            <div class="msg_caption">
+                <span class="up">向上滚动</span>
+                <span class="down">向下滚动</span>
+            </div>
+            <div>
+                <textarea name="" id="comment_two" cols="50" rows="8">
+                    定义一个文本区域 (text-area) （一个多行的文本输入区域）。用户可在此文本区域中写文本。在一个文本区中，您可输入无限数量的文本。文本区中的默认字体是等宽字体 (fixed pitch)。
+                    定义一个文本区域 (text-area) （一个多行的文本输入区域）。用户可在此文本区域中写文本。在一个文本区中，您可输入无限数量的文本。文本区中的默认字体是等宽字体 (fixed pitch)。
+                    定义一个文本区域 (text-area) （一个多行的文本输入区域）。用户可在此文本区域中写文本。在一个文本区中，您可输入无限数量的文本。文本区中的默认字体是等宽字体 (fixed pitch)。
+                    定义一个文本区域 (text-area) （一个多行的文本输入区域）。用户可在此文本区域中写文本。在一个文本区中，您可输入无限数量的文本。文本区中的默认字体是等宽字体 (fixed pitch)。
+                    
+                </textarea>
+            </div>
+        </div>
+    </form>
+</body>
+<script>
+    $(function() {
+        var $comment = $("#comment");
+        $(".bigger").click(function() {
+            if ($comment.height() < 500) {
+                // $comment.height($comment.height() + 50)
+                $comment.animate({
+                    height: '+=50'
+                }, 400)
+            }
+        })
+        $(".smaller").click(function() {
+            if ($comment.height() > 100) {
+                $comment.height($comment.height() - 50)
+            }
+        })
+    })
+
+    $(function() {
+        var $commentTwo = $("#comment_two")
+        $(".up").click(function() {
+            if (!$commentTwo.is(":animated")) {
+                //判断是否处于动画中
+                $commentTwo.animate({
+                    scrollTop: "-=50"
+                })
+            }
+        })
+        $(".down").click(function() {
+            if (!$commentTwo.is(":animated")) {
+                $commentTwo.animate({
+                    scrollTop: '+=50'
+                })
+            }
+        })
+    })
+</script>
+
+</html>

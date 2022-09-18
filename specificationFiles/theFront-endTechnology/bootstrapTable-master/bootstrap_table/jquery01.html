@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>toggle方法和效果</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+
+    <style>
+        .app {
+            width: 100%;
+            height: 500px;
+            background-color: lightblue;
+            position: relative;
+        }
+        
+        .panel {
+            width: 500px;
+            height: 500px;
+            background-color: white;
+            border: 1px solid lightcoral;
+            position: absolute;
+        }
+        
+        .panel h4 {
+            width: 100%;
+            height: 50px;
+            color: wheat;
+            background-color: black;
+            margin: 0;
+            line-height: 50px;
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <div class="panel">
+            <h4>标题</h4>
+            <div class="panel_content">
+                <ul>
+                    <li>锄禾适当午</li>
+                    <li>不知前端库</li>
+                    <li>bug改不完</li>
+                    <li>加班一上午</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    $(function() {
+        $(".panel h4").click(function() {
+            $(this).next().slideToggle()
+        })
+    })
+</script>

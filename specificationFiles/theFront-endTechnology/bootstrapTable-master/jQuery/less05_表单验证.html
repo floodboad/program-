@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录验证</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <style>
+        form {
+            width: 900px;
+            height: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -450px;
+            margin-top: -250px;
+            background-color: black;
+            text-align: center;
+            padding-top: 100px;
+            border: 1px solid lightcyan;
+            color: white;
+            border-radius: 20px
+        }
+        
+        form input {
+            margin-top: 20px;
+        }
+        
+        .high {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="int">
+            <label for="username">用户名</label>
+            <input type="text" id="username" class="required" placeholder="please write requred ">
+        </div>
+        <div class="int">
+            <label for="email">邮箱</label>
+            <input type="text" id="email" class="required" placeholder="please write requred ">
+        </div>
+        <div class="int">
+            <label for="personInfo">个人资料</label>
+            <input type="text" id="personInfo" class="required" placeholder="please write requred ">
+        </div>
+        <div class="sub">
+            <input type="submit" value="提交" id="send">
+            <input type="reset" id="reset" value="重置">
+        </div>
+    </form>
+</body>
+<script>
+    $(function() {
+        $("form :input.required").each(function() {
+            var $required = $("<strong class='high'>*</strong>");
+            $(this).parent().append($required)
+        })
+
+        $("form :input").blur(function() {
+            var $parent = $(this).parent();
+            $parent.find(".formTips").remove()
+            if ($(this).is("#username")) {
+                if (this.value = "" || this.value.length < 6) {
+                    var errorMsg = "请输入用户名至少6位"
+                    $parent.append("<span class='formTips onError'>" + errorMsg + "</span>")
+                } else {
+                    var okMsg = "输入正确";
+                    $parent.append("<span class='formTips onSuccess'>" + okMsg + "</span>")
+
+                }
+            }
+        })
+    })
+</script>
+
+</html>

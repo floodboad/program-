@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单选和复选框</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <form action="">
+        <h3>你爱好的运动？</h3>
+        <input type="checkbox" name="item" id="" value="足球">足球
+        <input type="checkbox" name="item" id="" value="篮球">篮球
+        <input type="checkbox" name="item" id="" value="羽毛球">羽毛球
+        <input type="checkbox" name="item" id="" value="乒乓球">乒乓球
+        <br>
+        <br>
+
+        <input type="button" value="全选" id="checkedAll">
+        <input type="button" value="全不选" id="checkedNo">
+        <input type="button" value="反选" id="checkedRev">
+        <input type="button" value="提交" id="send">
+        <input type="checkbox" name="item" id="CheckAll">全选/全不选
+    </form>
+</body>
+<script>
+    $(function() {
+        $("#checkedAll").click(function() {
+            $("[name=item]:checkbox").attr("checked", true)
+        })
+
+        $("#checkedNo").click(function() {
+            $("[name=item]:checkbox").attr("checked", false)
+        })
+
+        $("#checkedRev").click(function() {
+            $("[name=item]:checkbox").each(function() {
+                // $(this).attr('checked', !($(this).attr("checked")))
+                this.checked = !this.checked
+            })
+        })
+
+        $("#send").click(function() {
+            var str = '你选择的是:\r\n';
+            $("[name=item]:checkbox:checked").each(function() {
+                str += $(this).val() + "\r\n"
+            })
+            alert(str);
+            console.log(str);
+
+        })
+
+        //全选全不选
+        // $("#CheckAll").click(function() {
+        //     if (this.checked) {
+        //         $('[name=item]:checkbox').attr('checked', true)
+        //     } else {
+        //         $("[name=item]:checkbox").attr("checked", false)
+        //     }
+        // })
+
+        $("[name=item]:checkbox").click(function() {
+            var flag = true;
+            $('[name=item]:checkbox').each(function() {
+                if (!this.checked) {
+                    flag = false;
+                }
+            })
+            $("#CheckAll").attr("checked", flag)
+        })
+    })
+</script>
+
+</html>
